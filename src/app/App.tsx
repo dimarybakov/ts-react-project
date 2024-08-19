@@ -15,7 +15,7 @@ const App = () => {
       <button onClick={toggleTheme}>TOGGLE</button>
       <Link to={'/'}>Главная</Link>
       <Link to={'/about'}>О сайте</Link>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}> 
         <Routes>
           <Route path={'/about'} element={<AboutPage />} />
           <Route path={'/'} element={<MainPage />} />

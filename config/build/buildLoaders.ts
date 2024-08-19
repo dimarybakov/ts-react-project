@@ -1,9 +1,8 @@
-import MiniCssExtractPlugin, { loader } from "mini-css-extract-plugin";
-import webpack from "webpack"
-import { BuildOptions } from "./types/config";
+import MiniCssExtractPlugin, { loader } from 'mini-css-extract-plugin';
+import webpack from 'webpack';
+import { BuildOptions } from './types/config';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
-
   const cssLoaders = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -11,29 +10,26 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
       options.isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
       // Translates CSS into CommonJS
       {
-        loader: "css-loader",
+        loader: 'css-loader',
         options: {
           modules: {
             auto: (resPath: string) => resPath.includes('.module.'),
             localIdentName: options.isDev
               ? '[path][name]__[local]--[hash:base64:5]'
               : '[hash:base64:8]',
-          }
-        }
+          },
+        },
       },
       // Compiles Sass to CSS
-      "sass-loader",
+      'sass-loader',
     ],
   };
 
   const typescriptLoader = {
-      test: /\.tsx?$/,
-      use: 'ts-loader',
-      exclude: /node_modules/,
+    test: /\.tsx?$/,
+    use: 'ts-loader',
+    exclude: /node_modules/,
   };
 
-  return [
-    typescriptLoader,
-    cssLoaders
-  ]
+  return [typescriptLoader, cssLoaders];
 }
