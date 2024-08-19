@@ -10,7 +10,11 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    // "baseUrl": ".",
+    // Для абсолютного импорта
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    },
 
     // Если какая-либо библиотека не имеет default import,
     // лоадеры вроде ts-loader или babel-loader автоматически создают их
@@ -22,7 +26,7 @@
 
     // esModuleInterop позволяет работать с пакетами, которые используют
     // common js как с обычными пакетами с помощью import (require() module.export) = common js
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "ts-node": {
     "compilerOptions": {
