@@ -4,5 +4,6 @@
   "trailingComma": "all",
   "semi": true,
   "endOfLine": "lf",
-  "singleQuote": true
+  "singleQuote": true,
+  "printWidth": 80
 }
