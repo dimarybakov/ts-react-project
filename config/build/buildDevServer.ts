@@ -7,5 +7,9 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     open: true,
     historyApiFallback: true,
     hot: true,
+    client: {
+      // если true, то показывает сначала ошибку, затем ErrorBoundary
+      overlay: false,
+    },
   };
 }
