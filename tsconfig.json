@@ -32,5 +32,8 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "include": ["./config/jest/setupTests.ts", "./src/**/*"]
+  // почему то не работает
+  // "include": ["./config/jest/setupTests.ts"]
 }
