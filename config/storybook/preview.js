@@ -2,6 +2,7 @@ import { addDecorator } from '@storybook/react';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator/RouteDecorator';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -14,4 +15,6 @@ export const parameters = {
 };
 
 addDecorator(StyleDecorator);
+// тема по умолчанию, переопределяется в конкретном сторис
 addDecorator(ThemeDecorator(Theme.LIGHT));
+addDecorator(RouteDecorator);
