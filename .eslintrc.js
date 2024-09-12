@@ -36,7 +36,7 @@ module.exports = {
 
   rules: {
     // 'linebreak-style': ['error', 'unix'],
-    'linebreak-style': 0,
+    'linebreak-style': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'react/jsx-indent': ['error', 2],
