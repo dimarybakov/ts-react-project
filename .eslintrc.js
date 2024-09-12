@@ -35,7 +35,8 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'i18next'],
 
   rules: {
-    'linebreak-style': ['error', 'unix'],
+    // 'linebreak-style': ['error', 'unix'],
+    'linebreak-style': 0,
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'react/jsx-indent': ['error', 2],
