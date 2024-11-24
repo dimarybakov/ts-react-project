@@ -6,6 +6,9 @@
 import path from 'path';
 
 export default {
+  globals: {
+    __IS_DEV__: true,
+  },
   clearMocks: true,
   testEnvironment: 'jsdom',
   // An array of regexp pattern strings used to skip coverage collection
