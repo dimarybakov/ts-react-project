@@ -1,17 +1,43 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginByUserName } from '../../model/services/LoginByUsername/LoginByUsername';
+import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
+import { loginActions } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm: FC<LoginFormProps> = (props) => {
-  const { className } = props;
+// используем memo, чтобы избежать повторного рендеринга
+export const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const { username, password } = useSelector(getLoginState);
+
+  // все функции, передаваемые в качестве пропсов, оборачиваем в useCallback,
+  // чтобы ссылка не менялась
+  const onChangeUsername = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
+
+  const onChangePassword = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
+
+  const onLoginClick = useCallback(() => {
+    dispatch(loginByUserName({ username, password }));
+  }, [dispatch, username, password]);
 
   return (
     <div className={classNames(cls.loginForm, {}, [className])}>
@@ -20,9 +46,23 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         type="text"
         autofocus
         className={cls.input}
+        onChange={onChangeUsername}
+        value={username}
       />
-      <Input placeholder={t('Пароль')} type="text" className={cls.input} />
-      <Button className={cls.loginBtn}>{t('Войти')}</Button>
+      <Input
+        placeholder={t('Пароль')}
+        type="text"
+        className={cls.input}
+        onChange={onChangePassword}
+        value={password}
+      />
+      <Button
+        theme={ButtonTheme.OUTLINE}
+        className={cls.loginBtn}
+        onClick={onLoginClick}
+      >
+        {t('Войти')}
+      </Button>
     </div>
   );
-};
+});
