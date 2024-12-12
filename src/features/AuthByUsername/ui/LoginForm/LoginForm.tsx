@@ -17,7 +17,7 @@ interface LoginFormProps {
 export const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { username, password } = useSelector(getLoginState);
+  const { username, password, error, isLoading } = useSelector(getLoginState);
 
   // все функции, передаваемые в качестве пропсов, оборачиваем в useCallback,
   // чтобы ссылка не менялась
@@ -41,6 +41,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
   return (
     <div className={classNames(cls.loginForm, {}, [className])}>
+      {error && <div>{error}</div>}
       <Input
         placeholder={t('Имя пользователя')}
         type="text"
@@ -60,6 +61,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         theme={ButtonTheme.OUTLINE}
         className={cls.loginBtn}
         onClick={onLoginClick}
+        disabled={isLoading}
       >
         {t('Войти')}
       </Button>
