@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { loginByUserName } from '../../model/services/LoginByUsername/LoginByUsername';
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
 import { loginActions } from '../../model/slice/loginSlice';
@@ -41,7 +42,8 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
   return (
     <div className={classNames(cls.loginForm, {}, [className])}>
-      {error && <div>{error}</div>}
+      <Text title={t('Форма авторизации')} />
+      {error && <Text text={error} theme={TextTheme.ERROR} />}
       <Input
         placeholder={t('Имя пользователя')}
         type="text"
