@@ -11,12 +11,12 @@ export default ({ config }: { config: webpack.Configuration }) => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
   // config.resolve?.modules?.push(paths.src);
-  config.resolve?.modules?.push(
+  config!.resolve!.modules!.push(
     path.relative(__dirname, '../../src'),
     'node_modules',
   );
   // config.resolve?.modules = [paths.src, 'node_modules'];
-  config.resolve?.extensions?.push('.ts', '.tsx');
+  config!.resolve!.extensions!.push('.ts', '.tsx');
 
   // if (config.module) {
   //   // eslint-disable-next-line no-param-reassign
@@ -29,9 +29,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
   //   });
   // }
 
-  if (config.module?.rules) {
+  if (config!.module!.rules) {
     // eslint-disable-next-line no-param-reassign
-    config.module.rules = config.module?.rules?.map(
+    config.module!.rules = config.module!.rules!.map(
       (rule: RuleSetRule | null | undefined | false | 0 | '' | '...') => {
         if (rule && rule !== '...' && /svg/.test(rule.test as string)) {
           return { ...rule, exclude: /\.svg$/i };
@@ -46,9 +46,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
   });
-  config.module?.rules?.push(buildCssLoader(true));
+  config!.module!.rules!.push(buildCssLoader(true));
 
-  config.plugins?.push(
+  config!.plugins!.push(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
       __API__: JSON.stringify(''),
