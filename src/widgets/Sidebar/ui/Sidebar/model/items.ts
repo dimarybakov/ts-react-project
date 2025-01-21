@@ -7,7 +7,7 @@ import PrifileIcon from 'shared/assets/icons/profile-icon.svg';
 export interface SidebarItemType {
   path: string;
   text: string;
-  Icon?: VFC<SVGProps<SVGSVGElement>>;
+  Icon: VFC<SVGProps<SVGSVGElement>>;
 }
 
 export const SidebarItemsList: SidebarItemType[] = [
