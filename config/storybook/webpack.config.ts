@@ -12,11 +12,11 @@ export default ({ config }: { config: webpack.Configuration }) => {
   };
   // config.resolve?.modules?.push(paths.src);
   config!.resolve!.modules!.push(
-    path.relative(__dirname, '../../src'),
+    path.relative(__dirname, './src'),
     'node_modules',
   );
   // config.resolve?.modules = [paths.src, 'node_modules'];
-  config!.resolve!.extensions!.push('.ts', '.tsx');
+  config!.resolve!.extensions!.push('.ts', '.tsx', '.js');
 
   // if (config.module) {
   //   // eslint-disable-next-line no-param-reassign
