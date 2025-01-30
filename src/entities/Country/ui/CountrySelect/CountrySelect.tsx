@@ -12,13 +12,18 @@ interface CountrySelectProps {
 }
 
 // этот массив не зависит от пропсов или state, т.е. его можно вынести за пределы компонента
-const options = [
-  { value: Country.Armenia, content: Country.Armenia },
-  { value: Country.Belarus, content: Country.Belarus },
-  { value: Country.Kazakhstan, content: Country.Kazakhstan },
-  { value: Country.Russia, content: Country.Russia },
-  { value: Country.Ukraine, content: Country.Ukraine },
-];
+// const options = [
+//   { value: Country.Armenia, content: Country.Armenia },
+//   { value: Country.Belarus, content: Country.Belarus },
+//   { value: Country.Kazakhstan, content: Country.Kazakhstan },
+//   { value: Country.Russia, content: Country.Russia },
+//   { value: Country.Ukraine, content: Country.Ukraine },
+// ];
+
+const countryOptions = Object.values(Country).map((country) => ({
+  value: country,
+  content: country,
+}));
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
   const { className, value, readonly, onChange } = props;
@@ -35,7 +40,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     <Select
       className={classNames('', {}, [className])}
       label={t('Укажите страну')}
-      options={options}
+      options={countryOptions}
       value={value}
       readonly={readonly}
       onChange={onChangeHandler}
