@@ -64,7 +64,7 @@ module.exports = {
     ],
     'max-len': [
       'error',
-      { ignoreComments: true, code: 100, ignorePattern: '^import .*' },
+      { ignoreComments: true, code: 120, ignorePattern: '^import .*' },
     ],
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
@@ -76,5 +76,6 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
     __API__: true,
+    __PROJECT__: true,
   },
 };
