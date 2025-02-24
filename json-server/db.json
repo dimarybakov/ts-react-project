@@ -11,7 +11,6 @@
       "userId": "2"
     }
   ],
-
   "articles": [
     {
       "id": "1",
@@ -20,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "11.02.2025",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -83,7 +84,6 @@
       ]
     }
   ],
-
   "comments": [
     {
       "id": "1",
@@ -102,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "FwBd2w0"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Hello,boys!",
+      "id": "tyc2Ws9"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Привет",
+      "id": "Ad39hdX"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "пу-пурум",
+      "id": "NTB_mMS"
     }
   ],
   "users": [
@@ -114,20 +138,34 @@
     },
     {
       "id": "2",
-      "username": "dima",
+      "username": "masha",
       "password": "123",
       "role": "USER",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+      "avatar": "https://s1.1zoom.ru/big0/65/Jagoda_Sitting_Dress_Hands_Redhead_girl_Hair_611969_1280x1024.jpg"
     }
   ],
-  "profile": {
-    "first": "Дмитрий",
-    "lastname": "Рыбаков",
-    "age": 39,
-    "currency": "USD",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "dimka1985",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Дмитрий",
+      "lastname": "Рыбаков",
+      "age": 39,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "dimka1985",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Маша",
+      "lastname": "Милосердова",
+      "age": 40,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Nizhniy Novgorod",
+      "username": "mashka1984",
+      "avatar": "https://s1.1zoom.ru/big0/65/Jagoda_Sitting_Dress_Hands_Redhead_girl_Hair_611969_1280x1024.jpg"
+    }
+  ]
 }
