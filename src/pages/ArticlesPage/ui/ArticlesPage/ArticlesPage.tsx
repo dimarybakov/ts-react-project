@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
@@ -56,7 +57,7 @@ const article = {
     {
       id: '3',
       type: 'CODE',
-      code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
+      code: 'const path = require(path);\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, db.json));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
     },
     {
       id: '7',
