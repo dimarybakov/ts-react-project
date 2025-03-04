@@ -22,13 +22,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
       ));
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
-        {getSkeletons(view)}
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
+  //       {getSkeletons(view)}
+  //     </div>
+  //   );
+  // }
 
   const renderArticle = (article: Article) => (
     <ArticleListItem
@@ -42,6 +42,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   return (
     <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
       {articles.length > 0 ? articles.map(renderArticle) : null}
+      {isLoading && getSkeletons(view)}
     </div>
   );
 });
