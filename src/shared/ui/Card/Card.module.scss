@@ -1,6 +1,13 @@
 .card {
   padding: 15px;
   border-radius: 12px;
-  background: var(--card-bg);
   cursor: pointer;
+}
+
+.normal {
+  background: var(--card-bg);
+}
+
+.outlined {
+  border: 1px solif var(--primary-color);
 }
